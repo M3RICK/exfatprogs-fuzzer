@@ -81,8 +81,13 @@ The seed is a small valid exFAT image with a few files in it (`mkfs.exfat`,
 4 MiB minimum).
 
 ```sh
-./bin/fuzz_exfat_dir -max_len=4194304 -dict=../corpus.dict -artifact_prefix=../findings/ ../corpus
+sh run.sh fuzz_exfat_dir
+sh run.sh fuzz_exfat_tree -jobs=4 -max_total_time=3600
+CORPUS=../corpus_tree sh run.sh fuzz_exfat_tree
 ```
+
+`run.sh` passes `-max_len`, `-dict` and `-artifact_prefix` by default.
+Any libFuzzer flag after the target name overrides them.
 
 ## Disclosure
 
