@@ -48,15 +48,15 @@ by leftover state.
 ## Notes
 
 The first harness only iterated raw dentries and its coverage flattened fast.
-Driving it through `exfat_lookup_file` instead made the library interpret full
-dentry sets and broke that plateau. Both directory targets then saturated
+Driving it through `exfat_lookup_file` instead made the library check every
+file dentry set and broke that plateau. Both directory targets then saturated
 (193 and 147 edges) without a crash.
 
-The reason was the file entry checksum. Each file dentry set carries a checksum
-that the library verifies before parsing the set further, so almost every
-random mutation was rejected at that point. Before teaching the fuzzer about
-the checksum, I first tried a surface that sits before any checksum: the boot
-sector. That is `fuzz_exfat_boot`. ASan alone saw nothing there, because
+They had run out of code to reach: the lookup only checks a few fields of each
+set. I first blamed the file entry checksum, but the library never verifies it
+when reading; only `fsck` and `dump` do, and these harnesses do not link them.
+So the next step was a new surface rather than more time on the same one: the
+boot sector. That is `fuzz_exfat_boot`. ASan alone saw nothing there, because
 the bug is an out-of-range shift, not a memory error. Adding UBSan's `shift`
 check with `-fno-sanitize-recover` turned it into an abort that libFuzzer could
 save.
