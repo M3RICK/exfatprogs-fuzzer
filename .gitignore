@@ -1,0 +1,22 @@
+# Third-party code, cloned locally (see README)
+targets/
+
+# Build output
+harness/bin/
+*.o
+*.a
+
+# Fuzzing data: large, regenerable, and crashing inputs never go public
+corpus/
+corpus_*/
+findings/
+crash-*
+leak-*
+timeout-*
+oom-*
+
+# Seed images (regenerate with mkfs.exfat)
+*.img
+
+# Local work notes
+NOTES.md

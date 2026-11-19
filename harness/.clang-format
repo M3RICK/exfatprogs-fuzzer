@@ -1,0 +1,8 @@
+# Linux kernel style: 8-wide tabs, Linux braces.
+BasedOnStyle: LLVM
+UseTab: Always
+IndentWidth: 8
+TabWidth: 8
+BreakBeforeBraces: Linux
+AllowShortFunctionsOnASingleLine: None
+ColumnLimit: 100

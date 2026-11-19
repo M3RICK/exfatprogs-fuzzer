@@ -1,0 +1,19 @@
+# exFAT dentry types (first byte of a 32-byte entry)
+file_dir="\x85"
+stream_ext="\xc0"
+file_name="\xc1"
+alloc_bitmap="\x81"
+upcase_table="\x82"
+volume_label="\x83"
+volume_guid="\xa0"
+# Volume signature
+exfat_sig="EXFAT   "
+boot_sig="\x55\xaa"
+# Stream secondary flags (AllocationPossible / NoFatChain)
+stream_flags_alloc="\x01"
+stream_flags_nofat="\x03"
+# File attributes (le16): SUBDIR=0x10, RO/HID/SYS
+attr_subdir="\x10\x00"
+attr_rhs="\x07\x00"
+# Typical SecondaryCount for a file set (stream + 1..17 name entries)
+secondary_min="\x02"
