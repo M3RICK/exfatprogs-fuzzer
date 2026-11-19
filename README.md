@@ -28,6 +28,7 @@ and clusters up to 32 MiB).
 - Pull request: [#403](https://github.com/exfatprogs/exfatprogs/pull/403)
 - Commit: [f976d4d](https://github.com/exfatprogs/exfatprogs/commit/f976d4d0b033e72518fb67f1d805fd49f2aebd95)
 - Released in [exfatprogs 1.4.5](https://github.com/exfatprogs/exfatprogs/releases/tag/1.4.5)
+- Full write-up: [exfatprogs-WriteUp.pdf](https://github.com/M3RICK/WriteUps/blob/main/VulnResearch/exfatprogs/exfatprogs-WriteUp.pdf)
 
 ## Harnesses
 
